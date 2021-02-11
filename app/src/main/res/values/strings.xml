@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Loweather</string>
+    <string name="hint_city">City Name</string>
+    <string name="search_look_up">Lookup</string>
 </resources>

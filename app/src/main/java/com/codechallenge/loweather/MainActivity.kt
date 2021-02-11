@@ -1,18 +1,22 @@
 package com.codechallenge.loweather
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.codechallenge.loweather.ui.main.MainFragment
+import com.codechallenge.loweather.base.BaseActivity
+import com.codechallenge.loweather.ui.searchresult.SearchFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class MainActivity : BaseActivity() {
+    override val layoutResourceId: Int get() = R.layout.main_activity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
+
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
-                    .commitNow()
+                    .replace(R.id.container, SearchFragment())
+                    .addToBackStack(null)
+                    .commit()
         }
     }
 }
